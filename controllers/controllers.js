@@ -85,3 +85,16 @@ const create_RSO = function(req, res) {
   })
 }
 
+module.export = {
+  create_account,
+  authenticate,
+  create_event_with_rso,
+  create_event_without_rso,
+  add_review,
+  edit_review,
+  add_user_to_rso,
+  get_user_events,
+  get_public_events,
+  create_RSO
+  
+}
