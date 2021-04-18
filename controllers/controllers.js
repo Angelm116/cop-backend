@@ -85,7 +85,7 @@ const create_RSO = function(req, res) {
   })
 }
 
-module.export = {
+module.exports = {
   create_account,
   authenticate,
   create_event_with_rso,
@@ -96,5 +96,4 @@ module.export = {
   get_user_events,
   get_public_events,
   create_RSO
-  
 }
