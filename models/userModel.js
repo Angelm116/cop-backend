@@ -15,7 +15,7 @@ const User = function (user){
 
 User.createUser = (new_user, result) => {
 
-    dbConnection.query(`INSERT INTO Users SET ?`, new_user, (err, res) => {
+    dbConnection.query(`INSERT INTO User SET ?`, new_user, (err, res) => {
 
       if(err){
         result(err, null);
