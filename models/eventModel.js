@@ -26,10 +26,11 @@ Event.create_event = (new_event, resultF) => {
       resultF(err, null);
     }
 
-    if (res)
-    {
-      events = JSON.parse(res);
-    }
+    // if (res)
+    // {
+    //   events = JSON.parse(res);
+    // }
+    events = res;
     
   })
 
