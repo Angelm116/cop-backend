@@ -7,7 +7,7 @@ const create_account = function(req, res) {
   User.createUser(new_user, (err, result) => {
 
     if (err) {
-      res.send(err);
+      res.json(err);
     }
 
     res.json(new_user);
