@@ -9,6 +9,7 @@ const create_account = function(req, res) {
 
     if (err) {
       res.json(err);
+      return;
     }
 
     res.json(new_user);
