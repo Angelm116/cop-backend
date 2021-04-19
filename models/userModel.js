@@ -12,16 +12,16 @@ const User = function (user){
 
 };
 
-User.createUser = (new_user, result) => {
+User.createUser = (new_user, resultF) => {
 
     dbConnection.query(`INSERT INTO User SET ?`, new_user, (err, res) => {
 
       if(err){
-        result(err, null);
+        resultF(err, null);
         return;
     }
 
-    result(null, {result : "success"});
+    resultF(null, {result : "success"});
 
     });
 }
