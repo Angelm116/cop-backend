@@ -31,11 +31,13 @@ Event.create_event = (new_event, resultF) => {
     //   events = JSON.parse(res);
     // }
     events = res;
+    console.log(events);
+
     
   })
   console.log(events);
 
-  
+
   if(events)
   {
     console.log(events);
