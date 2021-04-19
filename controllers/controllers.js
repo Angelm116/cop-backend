@@ -152,6 +152,18 @@ const get_uiversity_users = (req, res) => {
   })
 }
 
+const get_categories = (req, res) => {
+  Event.getCategories((err, result) => {
+    if (err)
+    {
+      res.json(err);
+      return;
+    }
+
+    res.json(result);
+  })
+}
+
         
         // -createEvent, {rso_id, event_name, event_type, category, description, date, contact_phone, contact_email, latitude, longitude, locationName} => event/error
 
@@ -184,5 +196,6 @@ module.exports = {
   create_RSO, 
   get_universities, 
   get_university, 
-  get_uiversity_users
+  get_uiversity_users,
+  get_categories
 }

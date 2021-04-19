@@ -52,5 +52,8 @@ router.get('/get-university-users', controller.get_uiversity_users);
 
 router.post('/create-event', controller.create_event_with_rso);
 
+router.get('/get-categories', controller.get_categories);
+
+
 
 module.exports = router;
