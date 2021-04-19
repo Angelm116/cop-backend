@@ -19,3 +19,5 @@ RSOMember.addUser = (user, result) => {
   });
   
 }
+
+module.exports = RSOMember;

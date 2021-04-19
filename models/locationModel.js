@@ -1,3 +1,4 @@
+var dbConnection = require('../dbConnection');
 
 const Location = function(location) {
   this.location_id = location.location_id,
@@ -9,3 +10,5 @@ const Location = function(location) {
   this.longitude = location.longitude,
   this.latitude = location.latitude
 }
+
+module.exports = Location;

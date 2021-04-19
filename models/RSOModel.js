@@ -19,3 +19,5 @@ RSO.createRSO = (new_RSO, result) => {
       result(null, res);
     })
 }
+
+module.exports = RSO;
