@@ -48,6 +48,8 @@ router.get('/get-universities', controller.get_universities);
 
 router.get('/get-university', controller.get_university);
 
+router.get('/get-university-users', controller.get_uiversity_users);
+
 
 
 module.exports = router;

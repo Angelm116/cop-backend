@@ -34,4 +34,18 @@ University.getUniversity = (universityID, result) => {
   })
 }
 
+University.getUsers = (universityID, result) => {
+  dbConnection.query(`SELECT username FROM User
+                       WHERE
+                       university_id = '${universityID.university_id}'`, (err, res) => {
+
+    if (err)
+    {
+      result(err, null);
+    }
+
+    result(null, res);
+  })
+}
+
 module.exports = University;

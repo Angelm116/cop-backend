@@ -114,12 +114,26 @@ const get_universities = (req, res) => {
   })
 }
 
+// returns a json array with an object of the form {"uni_name": "nameofuni"} 
 const get_university = (req, res) => {
   var universityID = req.body;
 
   University.getUniversity(universityID, (err, result) => {
     if (err){
       res.json(err);
+      return;
+    }
+
+    res.json(result);
+  })
+}
+
+const get_uiversity_users = (req, res) => {
+  var universityID = req.body;
+
+  University.getUsers(universityID, (err, result) => {
+    if (err){
+      res.send(err);
       return;
     }
 
@@ -144,8 +158,6 @@ const get_university = (req, res) => {
         // -getUniversities,return a list of all registered universities in db
         // -getUsersFromUni, {university_id} => return list of all users that belong to university /error
 
-        // -getUniversity, {university_id} return university
-
 
 module.exports = {
   create_account,
@@ -159,5 +171,6 @@ module.exports = {
   get_public_events,
   create_RSO, 
   get_universities, 
-  get_university
+  get_university, 
+  get_uiversity_users
 }
