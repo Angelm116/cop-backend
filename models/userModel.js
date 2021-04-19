@@ -26,8 +26,7 @@ User.createUser = (new_user, resultF) => {
     });
 }
 
-// will return an empty json array if credentials to not match
-// will return a json array with the user_id of the user
+
 User.authenticateUser = (user_credentials, result) => {
 
   dbConnection.query(`SELECT user_id

@@ -1,7 +1,9 @@
 // require models
-var User = require('../models/userModel');
+const University = require('../models/universityModel');
+const User = require('../models/userModel');
 
-
+// if error, returns json with error
+// if success, returns json with result:success
 const create_account = function(req, res) {
   var new_user = new User(req.body);
   console.log(new_user);
@@ -18,6 +20,8 @@ const create_account = function(req, res) {
 
 };
 
+// will return an empty json array if credentials to not match
+// will return a json array with the user_id of the user
 const authenticate = function(req, res) {
 
   var user_credentials = new User(req.body);
@@ -96,10 +100,20 @@ const create_RSO = function(req, res) {
       res.json(result);
     }
   })
+};
+
+const get_universities = (req, res) => {
+  University.getUniversities((err, result) => {
+    if (err){
+      res.json(err);
+      return;
+    }
+
+    res.json(result);
+  })
 }
 
-        // -authenticate,  {username, user_pw}   => user / error
-        // -create-account, {username,user_pw, name, university_id, email} => user/error  (user_type 0 = normal user, user_type 1 = superAdmin)
+        
         // -createEvent, {rso_id, event_name, event_type, category, description, date, contact_phone, contact_email, latitude, longitude, locationName} => event/error
         // -createOrg, {rso_name, description, a list of members [user_id, isAdmin]} => new RSO / error
         // -createUni, {name, location_name, latitude, longitude, description, numberStudents} => new University / error
@@ -129,5 +143,6 @@ module.exports = {
   add_user_to_rso,
   get_user_events,
   get_public_events,
-  create_RSO
+  create_RSO, 
+  get_universities
 }

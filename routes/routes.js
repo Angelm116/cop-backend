@@ -44,4 +44,7 @@ router.get('/get-user-events', controller.get_user_events);
 
 router.get('/get-public-events', controller.get_public_events);
 
+router.get('/get-university', controller.get_universities);
+
+
 module.exports = router;

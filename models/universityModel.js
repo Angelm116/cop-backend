@@ -8,4 +8,15 @@ const University = function(university) {
   this.uni_email = university.uni_email
 }
 
+University.getUniversities = (result) => {
+  dbConnection.query(`SELECT uni_name FROM University`, (err, res) => {
+    if (err)
+    {
+      result(err, null);
+    }
+
+    result(null, res);
+  })
+}
+
 module.exports = University;
