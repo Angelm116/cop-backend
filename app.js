@@ -5,7 +5,7 @@ var app = express();
 var cors = require('cors');
 
 // use it before all route definitions
-// app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({origin: 'http://localhost:3000'}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
