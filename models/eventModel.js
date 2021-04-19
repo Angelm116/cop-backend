@@ -28,7 +28,7 @@ Event.create_event = (new_event, resultF) => {
     events = JSON.parse(res);
   })
 
-  if(events.length > 0)
+  if(!events)
   {
     for(x in events){
       date_holder = new Date('1970-01-01T' + x.event_date + 'Z');
