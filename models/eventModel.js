@@ -19,23 +19,22 @@ Event.create_event = (new_event, resultF) => {
   var new_date = new Date('1970-01-01T' + new_event.event_date + 'Z');
   var date_holder = undefined;
 
-  dbConnection.query(`SELECT event_id, event_date FROM Event WHERE location_id = '${new_event.location_id}' AND event_date = '${new_event.event_date}'`, (err, res) => {
+  await dbConnection.query(`SELECT event_id, event_date FROM Event WHERE location_id = '${new_event.location_id}' AND event_date = '${new_event.event_date}'`, (err, res) => {
 
     if (err)
     {
       resultF(err, null);
     }
 
-    // if (res)
-    // {
-    //   events = JSON.parse(res);
-    // }
-    events = res;
-    console.log(events);
+    if (res)
+    {
+      events = JSON.parse(res);
+    }
+    // events = res;
+    // console.log(events);
 
     
   })
-  console.log(events);
 
 
   if(events)
