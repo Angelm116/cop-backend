@@ -40,3 +40,5 @@ User.authenticateUser = (user_credentials, result) => {
 
   });
 }
+
+module.exports = User;
