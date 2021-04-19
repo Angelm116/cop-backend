@@ -1,3 +1,4 @@
+var dbConnection = require('../dbConnection');
 
 const Review = function(review){
   this.review_id = review.review_id, 
@@ -7,3 +8,5 @@ const Review = function(review){
   this.rating = review.rating, 
   this.timestamp = review.timestamp
 }
+
+module.exports = Review;

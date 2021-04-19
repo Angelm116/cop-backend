@@ -26,6 +26,7 @@ const authenticate = function(req, res) {
 
     if (err) {
       res.send(err);
+      return;
     }
 
     res.json(result);
@@ -33,7 +34,7 @@ const authenticate = function(req, res) {
 
 };
 
-
+// INSERT INTO University (uni_name, location_id, contact_phone, contact_email) VALUES ("UCF", "123", "4075855698", "lalalostyou@gmail.com");
 const create_event_with_rso = function(req, res) {
 
 };
@@ -65,6 +66,7 @@ const add_user_to_rso = function(req, res) {
   RSOMember.addUser(user, (err, result) => {
     if (err){
       res.send(err);
+      return;
     }
 
     res.json(result);
@@ -87,6 +89,8 @@ const create_RSO = function(req, res) {
   RSO.createRSO(new_RSO, (err, result) => {
     if(err){
       res.send(err);
+      return;
+
     }
     else {
       res.json(result);

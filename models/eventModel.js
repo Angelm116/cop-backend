@@ -1,3 +1,4 @@
+var dbConnection = require('../dbConnection');
 
 const Event = function(event){
   this.event_id = event.event_id, 
@@ -11,3 +12,5 @@ const Event = function(event){
   this.event_type = event.event_type, 
   this.location_id = event.location_id
 }
+
+module.exports = Event;
