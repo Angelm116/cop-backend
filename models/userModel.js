@@ -28,7 +28,7 @@ User.createUser = (new_user, result) => {
 
 User.authenticateUser = (user_credentials, result) => {
 
-  dbConnection.query(`SELECT id
+  dbConnection.query(`SELECT user_id
   FROM User
   WHERE name = '${user_credentials.username}' AND user_pw = '${user_credentials.user_pw}'`, (err, res) => {
 
