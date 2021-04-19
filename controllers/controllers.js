@@ -153,6 +153,7 @@ const get_uiversity_users = (req, res) => {
 }
 
 const get_categories = (req, res) => {
+
   Event.getCategories((err, result) => {
     if (err)
     {
@@ -161,7 +162,8 @@ const get_categories = (req, res) => {
     }
 
     res.json(result);
-  })
+  });
+
 }
 
         
