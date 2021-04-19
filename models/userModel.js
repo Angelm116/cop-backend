@@ -30,7 +30,7 @@ User.authenticateUser = (user_credentials, result) => {
 
   dbConnection.query(`SELECT user_id
   FROM User
-  WHERE name = '${user_credentials.username}' AND user_pw = '${user_credentials.user_pw}'`, (err, res) => {
+  WHERE username = '${user_credentials.username}' AND user_pw = '${user_credentials.user_pw}'`, (err, res) => {
 
     if(err){
       result(err, null);
