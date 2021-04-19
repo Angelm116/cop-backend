@@ -102,8 +102,22 @@ const create_RSO = function(req, res) {
   })
 };
 
+// retuns json array with objects of the form {"uni_name": "nameofuni"}
 const get_universities = (req, res) => {
   University.getUniversities((err, result) => {
+    if (err){
+      res.json(err);
+      return;
+    }
+
+    res.json(result);
+  })
+}
+
+const get_university = (req, res) => {
+  var universityID = req.body;
+
+  University.getUniversities(universityID, (err, result) => {
     if (err){
       res.json(err);
       return;
@@ -144,5 +158,6 @@ module.exports = {
   get_user_events,
   get_public_events,
   create_RSO, 
-  get_universities
+  get_universities, 
+  get_university
 }
