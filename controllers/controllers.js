@@ -4,6 +4,7 @@ var User = require('../models/userModel');
 
 const create_account = function(req, res) {
   var new_user = new User(req.body);
+  console.log(new_user);
 
   User.createUser(new_user, (err, result) => {
 
