@@ -20,12 +20,17 @@ Event.create_event = (new_event, resultF) => {
   var date_holder = undefined;
 
   dbConnection.query(`SELECT event_id, event_date FROM Event WHERE location_id = '${new_event.location_id}' AND event_date = '${new_event.event_date}'`, (err, res) => {
+
     if (err)
     {
       resultF(err, null);
     }
 
-    events = JSON.parse(res);
+    if (res)
+    {
+      events = JSON.parse(res);
+    }
+    
   })
 
   if(!events)
