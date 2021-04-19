@@ -83,7 +83,19 @@ Event.create_event = (new_event, resultF) => {
   })
 
 
+  Event.getCategories = (resultF) => {
+
+    dbConnection.query(`SELECT DISTINCT category FROM Event`, (err, res) => {
+
+      if(err){
+        resultF(err, null);
+        return;
+    }
   
+    resultF(null, {result : "success"});
+  
+    });
+  }
 
 
   
