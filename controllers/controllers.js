@@ -13,7 +13,7 @@ const create_account = function(req, res) {
       return;
     }
 
-    res.json(new_user);
+    res.json(result);
   });
 
 };
