@@ -117,7 +117,7 @@ const get_universities = (req, res) => {
 const get_university = (req, res) => {
   var universityID = req.body;
 
-  University.getUniversities(universityID, (err, result) => {
+  University.getUniversity(universityID, (err, result) => {
     if (err){
       res.json(err);
       return;
