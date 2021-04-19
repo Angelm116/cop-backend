@@ -43,3 +43,5 @@ router.get('/get-user-events', controller.get_user_events);
 // for someone who is not logged in, get all public events
 
 router.get('/get-public-events', controller.get_public_events);
+
+module.exports = router;
