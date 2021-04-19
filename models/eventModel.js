@@ -93,7 +93,7 @@ Event.getCategories = (resultF) => {
       return;
   }
 
-  resultF(null, {result : "success"});
+  resultF(null, res);
 
   });
 }
