@@ -1,4 +1,5 @@
 // require models
+const Event = require('../models/eventModel');
 const University = require('../models/universityModel');
 const User = require('../models/userModel');
 
@@ -40,7 +41,16 @@ const authenticate = function(req, res) {
 
 // INSERT INTO University (uni_name, location_id, contact_phone, contact_email) VALUES ("UCF", "123", "4075855698", "lalalostyou@gmail.com");
 const create_event_with_rso = function(req, res) {
+  var new_event = new Event(req.body);
 
+  Event.create_event(new_event, (err, result) => {
+    if (err){
+      res.json(err);
+      return;
+    }
+
+    res.json(result)
+  })
 };
 
 
@@ -79,7 +89,7 @@ const add_user_to_rso = function(req, res) {
 
 
 const get_user_events = function(req, res) {
-
+  
 };
 
 
@@ -128,6 +138,7 @@ const get_university = (req, res) => {
   })
 }
 
+// returns json array with objects holding usernames of users in university 
 const get_uiversity_users = (req, res) => {
   var universityID = req.body;
 
@@ -143,6 +154,7 @@ const get_uiversity_users = (req, res) => {
 
         
         // -createEvent, {rso_id, event_name, event_type, category, description, date, contact_phone, contact_email, latitude, longitude, locationName} => event/error
+
         // -createOrg, {rso_name, description, a list of members [user_id, isAdmin]} => new RSO / error
         // -createUni, {name, location_name, latitude, longitude, description, numberStudents} => new University / error
         // -joinRso, {rso_id, user_id} => new RSO member/ error
@@ -155,8 +167,8 @@ const get_uiversity_users = (req, res) => {
 
         // -getCategories, return a list of all distinct event_types in db
         // -getOrgs, {user_id, partialRSOName, myRSOOnly(boolean to filter by rso user is member of), }
-        // -getUniversities,return a list of all registered universities in db
-        // -getUsersFromUni, {university_id} => return list of all users that belong to university /error
+       
+        
 
 
 module.exports = {

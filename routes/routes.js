@@ -50,6 +50,7 @@ router.get('/get-university', controller.get_university);
 
 router.get('/get-university-users', controller.get_uiversity_users);
 
+router.post('/create-event', controller.create_event_with_rso);
 
 
 module.exports = router;

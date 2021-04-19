@@ -13,4 +13,17 @@ const Event = function(event){
   this.location_id = event.location_id
 }
 
+Event.create_event = (new_event, resultF) => {
+  dbConnection.query(`INSERT INTO Event SET ?`, new_event, (err, res) => {
+
+    if(err){
+      resultF(err, null);
+      return;
+  }
+
+  resultF(null, {result : "success"});
+
+  });
+}
+
 module.exports = Event;
