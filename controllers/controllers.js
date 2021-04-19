@@ -22,7 +22,7 @@ const authenticate = function(req, res) {
 
   var user_credentials = new User(req.body);
 
-  User.authenicateUser(user_credentials, (err, result) => {
+  User.authenticateUser(user_credentials, (err, result) => {
 
     if (err) {
       res.send(err);
