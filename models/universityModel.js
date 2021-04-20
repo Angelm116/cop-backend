@@ -9,7 +9,7 @@ const University = function(university) {
 }
 
 University.getUniversities = (result) => {
-  dbConnection.query(`SELECT uni_name FROM University`, (err, res) => {
+  dbConnection.query(`SELECT * FROM University`, (err, res) => {
     if (err)
     {
       result(err, null);

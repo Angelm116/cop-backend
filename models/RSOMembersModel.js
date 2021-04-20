@@ -7,15 +7,15 @@ const RSOMember = function(rsoMember)
   this.rso_id = rsoMember.rso_id
 }
 
-RSOMember.addUser = (user, result) => {
+RSOMember.addUser = (user, resultF) => {
 
-  dbConnection.query(`add user to RSOMEMBER table`, user, (err, res) => {
+  dbConnection.query(`INSERT INTO RSO_member SET ?`, user, (err, res) => {
     if (err){
-      result(err, null);
+      resultF(err, null);
       return;
     }
 
-    result(null, res);
+    resultF(null, {result:"success"});
   });
   
 }

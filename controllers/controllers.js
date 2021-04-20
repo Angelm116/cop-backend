@@ -152,6 +152,7 @@ const get_uiversity_users = (req, res) => {
   })
 }
 
+// returns list of distinct categories in the event table
 const get_categories = (req, res) => {
 
   Event.getCategories((err, result) => {
@@ -166,6 +167,8 @@ const get_categories = (req, res) => {
 
 }
 
+
+
         
         // -createEvent, {rso_id, event_name, event_type, category, description, date, contact_phone, contact_email, latitude, longitude, locationName} => event/error
 
@@ -179,7 +182,6 @@ const get_categories = (req, res) => {
         //  rso)
         // -returns list of events with location 
 
-        // -getCategories, return a list of all distinct event_types in db
         // -getOrgs, {user_id, partialRSOName, myRSOOnly(boolean to filter by rso user is member of), }
        
         
