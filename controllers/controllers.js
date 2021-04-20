@@ -1,6 +1,7 @@
 // require models
 const Event = require('../models/eventModel');
 const RSOMember = require('../models/RSOMembersModel');
+const RSO = require('../models/RSOModel');
 const University = require('../models/universityModel');
 const User = require('../models/userModel');
 
@@ -67,7 +68,7 @@ const get_events_by_category = function(req, res) {
 
 
 const add_review = function(req, res) {
-
+    
 };
 
 const edit_review = function(req, res){
@@ -168,14 +169,32 @@ const get_categories = (req, res) => {
 
 }
 
+const createOrg = (req, res) => {
+  var details = req.body;
+
+  var info = {rso_id = details.rso_id,
+              university_id = details.university_id,
+              rso_name = details.name, 
+              description = details.description,
+              admin_id = details.admin_id}
+
+  var students = mRSOinfo.list;
+
+  RSO.createRSO(info, students, (err, result) => {
+    if (err){
+      res.json(err);
+    }
+
+    res.json(result);
+  })
+}
+
 
 
         
-        // -createEvent, {rso_id, event_name, event_type, category, description, date, contact_phone, contact_email, latitude, longitude, locationName} => event/error
 
         // -createOrg, {rso_name, description, a list of members [user_id, isAdmin]} => new RSO / error
         // -createUni, {name, location_name, latitude, longitude, description, numberStudents} => new University / error
-        // -joinRso, {rso_id, user_id} => new RSO member/ error
 
         // -getEvents, {user_id, partialUniName, partialRSOName, startDate, endDate, event_type(fundraising,etc)}
         // -if there is no user_id, return only public Events

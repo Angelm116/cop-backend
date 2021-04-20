@@ -9,8 +9,8 @@ const RSO = function(rso){
   this.admin_id = rso.admin_id
 }
 
-RSO.createRSO = (new_RSO, result) => {
-    dbConnection.query(`statement to add to RSO table`, new_RSO, (err, res) => {
+RSO.createRSO = (new_RSO, list, result) => {
+    dbConnection.query(`INSERT INTO User SET ?`, new_RSO, (err, res) => {
       if(err){
         result(err, null);
         return;
@@ -19,5 +19,7 @@ RSO.createRSO = (new_RSO, result) => {
       result(null, res);
     })
 }
+
+
 
 module.exports = RSO;
