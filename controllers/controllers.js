@@ -1,5 +1,6 @@
 // require models
 const Event = require('../models/eventModel');
+const RSOMember = require('../models/RSOMembersModel');
 const University = require('../models/universityModel');
 const User = require('../models/userModel');
 
