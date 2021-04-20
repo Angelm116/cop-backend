@@ -56,6 +56,8 @@ router.get('/get-categories', controller.get_categories);
 
 router.post('/create-rso', controller.createOrg);
 
+router.post('/addrev', controller.add_review);
+
 
 
 

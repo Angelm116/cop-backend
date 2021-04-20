@@ -1,5 +1,6 @@
 // require models
 const Event = require('../models/eventModel');
+const Review = require('../models/reviewModel');
 const RSOMember = require('../models/RSOMembersModel');
 const RSO = require('../models/RSOModel');
 const University = require('../models/universityModel');
@@ -69,6 +70,16 @@ const get_events_by_category = function(req, res) {
 
 const add_review = function(req, res) {
 
+  var rev = new Review(req.body);
+
+  Review.add(rev, (err, result) => {
+    if (err){
+      res.send(err);
+      return;
+    }
+
+    res.json(result);
+  })
 };
 
 const edit_review = function(req, res){
@@ -188,24 +199,6 @@ const createOrg = (req, res) => {
     res.json(result);
   })
 }
-
-
-
-        
-
-        // -createOrg, {rso_name, description, a list of members [user_id, isAdmin]} => new RSO / error
-        // -createUni, {name, location_name, latitude, longitude, description, numberStudents} => new University / error
-
-        // -getEvents, {user_id, partialUniName, partialRSOName, startDate, endDate, event_type(fundraising,etc)}
-        // -if there is no user_id, return only public Events
-        // -if user then also return events of it's university or his organization (based on event_category ->public, private, 
-        //  rso)
-        // -returns list of events with location 
-
-        // -getOrgs, {user_id, partialRSOName, myRSOOnly(boolean to filter by rso user is member of), }
-       
-        
-
 
 module.exports = {
   create_account,

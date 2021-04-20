@@ -9,4 +9,18 @@ const Review = function(review){
   this.timestamp = review.timestamp
 }
 
+Review.add = (rev, resultF)=>
+{
+  dbConnection.query(`INSERT INTO Review SET ?`, rev, (err, res) => {
+
+    if(err){
+      resultF(err, null);
+      return;
+  }
+
+  resultF(null, {result : "success"});
+
+  });
+}
+
 module.exports = Review;
