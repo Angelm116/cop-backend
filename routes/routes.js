@@ -54,6 +54,9 @@ router.post('/create-event', controller.create_event_with_rso);
 
 router.get('/get-categories', controller.get_categories);
 
+router.post('/create-rso', controller.createOrg);
+
+
 
 
 module.exports = router;

@@ -68,7 +68,7 @@ const get_events_by_category = function(req, res) {
 
 
 const add_review = function(req, res) {
-    
+
 };
 
 const edit_review = function(req, res){
@@ -221,5 +221,6 @@ module.exports = {
   get_universities, 
   get_university, 
   get_uiversity_users,
-  get_categories
+  get_categories, 
+  createOrg
 }
